@@ -2,82 +2,55 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+body {
+  min-height: 100vh;             
+  width: 100%;
   overflow-x: hidden;
   background-color: #000;
   background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-body {
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
-
 .card {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.55); 
+  color: white;
   width: 90%;
   max-width: 320px;
-  text-align: center;
   padding: 20px;
-  color: white;
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(4px); 
+  -webkit-backdrop-filter: blur(4px);
 }
-
 .profile-img {
   width: 90px;
   height: 90px;
   margin: 0 auto 15px;
-  background-image: url('profile.gif');
-  background-size: cover;
-  background-position: center;
+  background: url('profile.gif') center/cover;
   border-radius: 50%;
 }
-
-.card h2 {
-  font-size: 1.6em;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card .info {
+.info {
   font-size: 1em;
   color: #ddd;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
-
 .social-links {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 10px;
 }
-
 .social-icon {
   color: #ddd;
   font-size: 1.8em;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .social-icon:hover {
   color: #007BFF;
-}
-
-.footer {
-  font-size: 0.8em;
-  color: #ddd;
-  margin-top: 20px;
-}
-
-.footer p {
-  margin: 0;
 }
