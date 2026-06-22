@@ -20,3 +20,35 @@ body {
 .card img {
   object-fit: cover;
 }
+
+/* Custom Dropdown Styling */
+.dropdown-menu-custom {
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  margin-top: 6px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu-custom .dropdown-item {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-menu-custom .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.dropdown-menu-custom .dropdown-item i {
+  font-size: 1.1rem;
+}
