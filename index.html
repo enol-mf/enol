@@ -50,11 +50,66 @@
       <a href="Enol_Marques_Fernandez.pdf" class="btn btn-outline-success" download>
         <i class="bi bi-file-earmark-pdf me-2"></i>Descargar CV
       </a>
+      <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#presentationModal" aria-label="Abrir carta de presentación">
+        <i class="bi bi-file-text me-2"></i>Carta de Presentación
+      </button>
       <p class="text-white-50 mb-0 mt-1">
         <i class="bi bi-envelope me-2"></i>enol.marquesf@gmail.com
       </p>
     </div>
   </div>
+
+  <div class="modal fade" id="presentationModal" tabindex="-1" aria-labelledby="presentationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="presentationModalLabel">Carta de Presentación</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar carta de presentación"></button>
+        </div>
+        <div class="modal-body text-start" id="presentationText"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const presentationTextEl = document.getElementById('presentationText');
+    const fallbackText = `Me llamo Enol Marqués Fernández, soy Técnico Superior en Desarrollo de Aplicaciones Web y Administración de Sistemas Informáticos en Red, titulado en CIFP Avilés.
+
+Cuento con experiencia profesional real en distintos entornos: administración de sistemas y bases de datos Oracle en Edisa, soporte técnico en Seresco y dos etapas en Capgemini, la más reciente como desarrollador en prácticas trabajando con Salesforce, Apex, Lightning Web Components y automatización de procesos con Flows.
+
+En el ámbito del desarrollo, he realizado proyectos full-stack completos con React, Node.js/Express y MySQL, con despliegue en producción usando Docker y Oracle Cloud. También tengo experiencia en infraestructura con Terraform, Ansible y Azure, y en scripting con Python y Bash.
+
+Me considero una persona con orientación a resultados, aprendizaje rápido y con capacidad para moverme tanto en el lado del desarrollo como en el de sistemas, lo que me permite adaptarme a distintos tipos de proyectos y equipos.
+
+Quedo a su disposición para ampliar información o concertar una entrevista. Puede contactarme en enol.marquesf@gmail.com o en el 617 28 34 42.
+
+Atentamente,
+Enol Marqués Fernández
+LinkedIn: linkedin.com/in/enolmf | GitHub: github.com/enol-mf`;
+
+    function renderPresentationText(text) {
+      const paragraphs = text
+        .split(/\n\s*\n/)
+        .map((paragraph) => paragraph.trim())
+        .filter(Boolean);
+
+      presentationTextEl.innerHTML = paragraphs
+        .map((paragraph) => `<p class="mb-3">${paragraph.replace(/\n/g, '<br>')}</p>`)
+        .join('');
+    }
+
+    renderPresentationText(fallbackText);
+
+    fetch('text.txt')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('No se pudo cargar el archivo');
+        }
+        return response.text();
+      })
+      .then((text) => renderPresentationText(text))
+      .catch(() => renderPresentationText(fallbackText));
+  </script>
 </body>
 </html>
